@@ -1,0 +1,65 @@
+using System;
+
+namespace Inheritance1
+{
+    public class Member
+    {
+        string name;
+        int age;
+        string phonenumber;
+        string address;
+        double salary;
+        public virtual void Getdeatils()
+        {
+            Console.WriteLine("Enter your name");
+            name = Console.ReadLine();
+            Console.WriteLine("Enter age");
+            age = int.Parse(Console.ReadLine());
+            Console.WriteLine("Phone Number");
+            phonenumber = Console.ReadLine();
+            Console.WriteLine("Address");
+            address = Console.ReadLine();
+            Console.WriteLine("Salary");
+            salary = double.Parse(Console.ReadLine());
+        }
+        public virtual void DisplayDeatils()
+        {
+            Console.WriteLine("The Name is  : "+name);
+            Console.WriteLine("Age is : " +age);
+            Console.WriteLine("Phone Number is : " +phonenumber);
+            Console.WriteLine("Address is : " +address);
+        }
+        public void printSalary()
+        {
+            Console.WriteLine("Salary is : " + salary);
+        }
+    }
+    public class Employee:Member
+    {
+        public string specilization="Engineering";
+        public string department="Computer";
+    }
+    public class Manager:Member
+    {
+        public string specilization = "MBA";
+        public string department = "HR";
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Employee emp = new Employee();
+            Manager mng = new Manager();
+            Console.WriteLine("Employee details are displayed above");
+            emp.Getdeatils();
+            emp.DisplayDeatils();
+            emp.printSalary();
+            Console.WriteLine(" ");
+
+            Console.WriteLine("Manager Details are displayed above");
+            mng.Getdeatils();
+            mng.DisplayDeatils();
+            mng.printSalary();
+        }
+    }
+}
